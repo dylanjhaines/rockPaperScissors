@@ -40,7 +40,7 @@ function playRound(playerSelection, computerSelection) {
   let playerSelection
   let computerSelection
 
-  function game() {
+  /*function game() {
     let win = 0;
     let lose = 0;
     let tie = 0;
