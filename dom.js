@@ -11,99 +11,79 @@ function getComputerChoice() {
     }
 }
 
-const buttons = document.querySelectorAll('button');
+//const buttons = document.querySelectorAll('#button');
 let playerSelection;
 let computerSelection;
-//});
-//buttons.forEach((button) => {
 
-    // and for each one we add a 'click' listener
-   // const rock = document.querySelector('rock');
-    rock.addEventListener('click', () => {
-    playerSelection = 'rock';
-    computerSelection = getComputerChoice();
-    playRound(playerSelection, computerSelection);
-    console.log(playerSelection);
-    console.log(computerSelection);
-    //game();
-    });
+reset.addEventListener('click', () => {
+    win = 0
+    lose = 0;
+    tie = 0;
+    winner.textContent = win;
+    loser.textContent = lose;
+    cousin.textContent = tie;
+    results.textContent = "Good luck!";
+});
 
-    paper.addEventListener('click', () => {
-        playerSelection = 'paper';
-        computerSelection = getComputerChoice();
-        playRound(playerSelection, computerSelection);
-        console.log(playerSelection);
-        console.log(computerSelection);
-    });
+rock.addEventListener('click', () => {
+  playerSelection = 'rock';
+  computerSelection = getComputerChoice();
+  playRound(playerSelection, computerSelection);
+});
 
-    scissors.addEventListener('click', () => {
-        playerSelection = 'scissors';
-        computerSelection = getComputerChoice();
-        playRound(playerSelection, computerSelection);
-        console.log(playerSelection);
-        console.log(computerSelection);
-    });
+paper.addEventListener('click', () => {
+  playerSelection = 'paper';
+  computerSelection = getComputerChoice();
+  playRound(playerSelection, computerSelection);
+});
+
+scissors.addEventListener('click', () => {
+  playerSelection = 'scissors';
+  computerSelection = getComputerChoice();
+  playRound(playerSelection, computerSelection);
+});
+const winner = document.querySelector('.win');
+const loser = document.querySelector('.lose');
+const cousin = document.querySelector('.tie');
+let results = document.querySelector('.message')
+
+let win = 0;
+let lose = 0;
+let tie = 0;
 
 function playRound(playerSelection, computerSelection) {
+    if (win < 5 && lose < 5){
     if (computerSelection === "rock" && playerSelection === "rock") {
-        console.log("Tie! Rock ties Rock.");
+       cousin.textContent = (tie += 1);
     } else if (computerSelection === "paper" && playerSelection === "rock") {
-        return "Loser! Paper beats Rock.";
+        loser.textContent = (lose += 1);
     } else if (computerSelection === "scissors" && playerSelection === "rock") {
-        return "Winner! Rock beats Scissors.";
+        winner.textContent = (win += 1);
     } else if (computerSelection === "rock" && playerSelection === "paper") {
-        return "Winner! Paper beats Rock.";
+        winner.textContent = (win += 1);
     } else if (computerSelection === "paper" && playerSelection === "paper") {
-        return "Tie! Paper ties Paper.";
+        cousin.textContent = (tie += 1);
     } else if (computerSelection === "scissors" && playerSelection === "paper") {
-        return "Loser! Scissors beats paper.";
+        loser.textContent = (lose += 1);
     } else if (computerSelection === "rock" && playerSelection === "scissors") {
-        return "Loser! Rock beats Scissors.";
+        loser.textContent = (lose += 1);
     } else if (computerSelection === "paper" && playerSelection === "scissors") {
-        return "Winner! Scissors beats paper.";
+        winner.textContent = (win += 1);
     } else if (computerSelection === "scissors" && playerSelection === "scissors") {
-        return "Tie! Scissors ties Scissors.";
+        cousin.textContent = (tie += 1);
     } else {
-        return "Something went wrong, make sure you're spelling correctly!"
+        console.log("Something went wrong, make sure you're spelling correctly!");
     }
+}
+    if((win < 5) && (lose < 5)) {
+        results.textContent = "Keep playing!";
+    }   else if (win == 5) {
+        results.textContent = "You win!";
+    }  else if (lose == 5) {
+        results.textContent = "You lose!";
+       
+    } 
   }
 
-/*
-  function game() {
-    let win = 0;
-    let lose = 0;
-    let tie = 0;
-    for (let i = 0; i < 5; i++) {
-        let computerSelection = getComputerChoice();
-  
-        //let playerSelectionInput = prompt("Choose Rock, Paper, or Scissors");
-        let playerSelection = playerSelectionInput.toLowerCase();
-        playRound(playerSelection, computerSelection);
-        if (computerSelection === "Rock" && playerSelection === "rock") {
-            tie += 1;
-        } else if (computerSelection === "Paper" && playerSelection === "rock") {
-            lose += 1;
-        } else if (computerSelection === "Scissors" && playerSelection === "rock") {
-            win += 1;
-        } else if (computerSelection === "Rock" && playerSelection === "paper") {
-            win += 1;
-        } else if (computerSelection === "Paper" && playerSelection === "paper") {
-            tie += 1;
-        } else if (computerSelection === "Scissors" && playerSelection === "paper") {
-            lose += 1;
-        } else if (computerSelection === "Rock" && playerSelection === "scissors") {
-            lose += 1;
-        } else if (computerSelection === "Paper" && playerSelection === "scissors") {
-            win += 1;
-        } else if (computerSelection === "Scissors" && playerSelection === "scissors") {
-            tie += 1;
-        } else {
-            return "Something went wrong, make sure you're spelling correctly!"
-        }
-        console.log(playRound(playerSelection, computerSelection) + 
-                "  Your record is: " + win + "-" + lose + "-" + tie);
-    }
-  }
 
- console.log(game());
-*/
+
