@@ -6,25 +6,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RPS</title>
     <script src="dom.js" defer></script>
+    <link rel="stylesheet" href="style.css">
 
 </head>
 <body>
-   <h1>Rock Paper Scissors!</h1> 
-   <p><h2>Make your selection below, first to 5 wins!</h2></p>
+  <div class = "header">Rock Paper Scissors!</div>
+   <!--<h1>Rock Paper Scissors!</h1> -->
+   <div class = "subheader">Make your selection below, first to 5 wins!</div>
     <div id="container">
-        <button id="rock">&#128074</button> <!--rock-->
-        <button id="paper">&#9995</button> <!--paper-->
-        <button id="scissors">&#9996</button><!--scissors-->
+        <button id="rock">👊</button> <!--rock-->
+        <button id="paper">✋</button> <!--paper-->
+        <button id="scissors">✌</button><!--scissors-->
     </div>
     <div id="results">
-        <h2>Win</h2>
+        <div class = "label">Win
             <div class="win">0</div>
-        <h2>Lose</h2>    
-        <div class="lose">0</div>
-        <h2>Draw</h2>
-        <div class="tie">0</div>
+        </div>
+        <div class = "label">Lose
+            <div class="lose">0</div>
+        </div>
+        <div class = "label">Draw
+            <div class="tie">0</div>
+        </div>
+       
     </div>
-    <div class="message"></div>
+    <div class="message">Good Luck!</div>
+    
     <div id="container1">
         <button id="reset">Reset Game</button>
     </div>

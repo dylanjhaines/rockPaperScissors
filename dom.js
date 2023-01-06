@@ -23,6 +23,7 @@ reset.addEventListener('click', () => {
     loser.textContent = lose;
     cousin.textContent = tie;
     results.textContent = "Good luck!";
+    button.style.visibility = 'hidden';
 });
 
 rock.addEventListener('click', () => {
